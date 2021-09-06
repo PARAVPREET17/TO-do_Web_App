@@ -20,7 +20,7 @@
         <input type="text" class="form-control"  name="task" placeholder="New Task">
         </div>
         <div class="col-md-2">
-        <button type="submit" class="btn btn-primary">Add Task</button>
+        <button type="submit" class="btn btn-primary ">Add Task</button>
       </div>
       </form>
      <br>
@@ -39,7 +39,7 @@
               {% for obj in all_tasks %}
               {% if obj.done %}
             <tr class="table-success row">
-              <td class=col-7>{{obj.task}}</td>
+              <td class=col-7><del>{{obj.task}}</del></td>
               <td class=col-3><a href="{% url 'pending' obj.id %}"><button type="button" class="btn btn-dark">Mark this Pending</button></a></td>
               <!-- <td class=col-1>{{obj.due_date}}</td > -->
               <td class=col-1><a href="{% url 'edit_task' obj.id %}"><button type="button" class="btn btn-warning">Edit</button></a></td>
