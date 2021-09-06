@@ -43,6 +43,8 @@ def delete_task(request, task_id):
     task=TaskList.objects.get(pk=task_id)
     task.delete()
     return redirect('todolist')
+
+
 @login_required
 def edit_task(request, task_id):  
     if request.method == 'POST':
@@ -58,17 +60,21 @@ def edit_task(request, task_id):
         'task_obj': task_obj,
     }
     return render(request, 'edit.html', context)  
+
+
 @login_required
 def complete_task(request, task_id):
     task = TaskList.objects.get(pk=task_id)
-    task.done=True   
-    task.save() 
+    if task.manager==request.user:
+        task.done=True   
+        task.save() 
     
     return redirect('todolist')
 @login_required
 def pending_task(request, task_id):
     task = TaskList.objects.get(pk=task_id)
-    task.done=False 
-    task.save()    
+    if task.manager==request.user:
+        task.done=False 
+        task.save()    
     return redirect('todolist') 
 
