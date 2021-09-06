@@ -68,13 +68,13 @@ def complete_task(request, task_id):
     if task.manager==request.user:
         task.done=True   
         task.save() 
-    
-    return redirect('todolist')
+        return redirect('todolist')
+        
 @login_required
 def pending_task(request, task_id):
     task = TaskList.objects.get(pk=task_id)
     if task.manager==request.user:
         task.done=False 
         task.save()    
-    return redirect('todolist') 
+        return redirect('todolist') 
 
