@@ -20,7 +20,7 @@ def todolist(request):
         return redirect('todolist') 
     else:
         all_tasks = TaskList.objects.all().order_by('id')
-        paginator=Paginator(all_tasks,4)
+        paginator=Paginator(all_tasks,5)
         page=request.GET.get('pg')
         all_tasks = paginator.get_page(page)
         context = {
