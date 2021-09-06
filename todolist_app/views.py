@@ -21,7 +21,7 @@ def todolist(request):
             messages.success(request, ("New Task Added"))
             return redirect('todolist') 
     else:
-        all_tasks = TaskList.objects.filter(manager=request.user)
+        all_tasks = TaskList.objects.filter(manager=request.user).order_by('id')
         paginator=Paginator(all_tasks,5)
         page=request.GET.get('pg')
         all_tasks = paginator.get_page(page)
