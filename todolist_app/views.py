@@ -17,7 +17,7 @@ def todolist(request):
         if form.is_valid():
             form.save()
             messages.success(request, ("New Task Added"))
-        return redirect('todolist')
+        return redirect('todolist') 
     else:
         all_tasks = TaskList.objects.all().order_by('id')
         paginator=Paginator(all_tasks,4)
