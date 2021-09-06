@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Register {% endblock %}
+{% block content %}
+<div class="container">
+    <form method='POST'>
+        {% csrf_token %}
+        {{register_form.as_p}} 
+        <!-- .as_p put form in paragraph -->
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+{% endblock %}
