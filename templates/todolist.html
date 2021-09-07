@@ -42,16 +42,16 @@
               <td class=col-7><del>{{obj.task}}</del></td>
               <td class=col-3><a href="{% url 'pending' obj.id %}"><button type="button" class="btn btn-dark">Mark this Pending</button></a></td>
               <!-- <td class=col-1>{{obj.due_date}}</td > -->
-              <td class=col-1><button type="button" class="btn btn-warning"><a href="{% url 'edit_task' obj.id %}"><i class="fa fa-edit"></i></a></button></td>
-              <td class=col-1><button type="button" class="btn btn-danger"><a href="{% url 'delete_task' obj.id %}"><i class="fa fa-trash"></i></a></button></td>
+                <td class=col-1><a href="{% url 'edit_task' obj.id %}"></a><button type="button" class="btn btn-warning"><i class="fa fa-edit"></i></button></a></td>
+                <td class=col-1><a href="{% url 'delete_task' obj.id %}"><button type="button" class="btn btn-danger">><i class="fa fa-trash"></i></button></a></td>
             </tr>
             {% else %}
             <tr class="row">
                 <td class=col-7>{{obj.task}}</td>
                 <td class=col-3><a href="{% url 'complete' obj.id %}"><button type="button" class="btn btn-dark">Mark this Completed</button></a></td>
                 <!-- <td class=col-1>{{obj.due_date}}</td -->
-                <td class=col-1><button type="button" class="btn btn-warning"><a href="{% url 'edit_task' obj.id %}"><i class="fa fa-edit"></i></a></button></td>
-              <td class=col-1><button type="button" class="btn btn-danger"><a href="{% url 'delete_task' obj.id %}"><i class="fa fa-trash"></i></a></button></td>
+                <td class=col-1><a href="{% url 'edit_task' obj.id %}"></a><button type="button" class="btn btn-warning"><i class="fa fa-edit"></i></button></a></td>
+              <td class=col-1><a href="{% url 'delete_task' obj.id %}"><button type="button" class="btn btn-danger">><i class="fa fa-trash"></i></button></a></td>
               </tr>
               {% endif %}
             {% endfor %}
